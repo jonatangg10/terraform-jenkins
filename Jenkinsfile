@@ -64,18 +64,24 @@ pipeline {
             steps {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'id-de-tus-credenciales', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     // Las credenciales se asignarán automáticamente a las variables de entorno dentro de este bloque
-                    echo "AWS_ACCESS_KEY_ID: ${env.AWS_ACCESS_KEY_ID}"
-                    echo "AWS_SECRET_ACCESS_KEY: ${env.AWS_SECRET_ACCESS_KEY}"
-                }
-            }
-        }
-        stage('Imprimir variables de entorno') {
-            steps {
-                script {
                     echo "Valor de AWS_ACCESS_KEY_ID: ${env.AWS_ACCESS_KEY_ID}"
                     echo "Valor de AWS_SECRET_ACCESS_KEY: ${env.AWS_SECRET_ACCESS_KEY}"
+                    // Pasar las credenciales como parámetros
+                    buildOtherStage(AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY)
                 }
             }
         }
     }
 }
+
+def buildOtherStage(params) {
+    stage('Imprimir variables de entorno') {
+        steps {
+            script {
+                echo "Valor de AWS_ACCESS_KEY_ID: ${params.AWS_ACCESS_KEY_ID}"
+                echo "Valor de AWS_SECRET_ACCESS_KEY: ${params.AWS_SECRET_ACCESS_KEY}"
+            }
+        }
+    }
+}
+
