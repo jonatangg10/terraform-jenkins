@@ -51,34 +51,3 @@ pipeline {
 
     }
 }
-
-pipeline {
-    agent any
-    environment {
-        AWS_DEFAULT_REGION = 'tu-region-aws'
-    }
-    stages {
-        stage('Imprimir credenciales de AWS') {
-            environment {
-                AWS_ACCESS_KEY_ID = credentials('id-de-tus-credenciales').accessKey
-                AWS_SECRET_ACCESS_KEY = credentials('id-de-tus-credenciales').secretKey
-            }
-            steps {
-                script {
-                    echo "Valor de AWS_ACCESS_KEY_ID: ${env.AWS_ACCESS_KEY_ID}"
-                    echo "Valor de AWS_SECRET_ACCESS_KEY: ${env.AWS_SECRET_ACCESS_KEY}"
-                }
-            }
-        }
-        stage('Otra etapa') {
-            steps {
-                script {
-                    echo "AWS_ACCESS_KEY_ID disponible en otra etapa: ${env.AWS_ACCESS_KEY_ID}"
-                    echo "AWS_SECRET_ACCESS_KEY disponible en otra etapa: ${env.AWS_SECRET_ACCESS_KEY}"
-                }
-            }
-        }
-    }
-}
-
-
