@@ -51,16 +51,3 @@ pipeline {
 
     }
 }
-
-stage('Imprimir credenciales de AWS') {
-            steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'id-de-tus-credenciales', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    script {
-                        env.AWS_ACCESS_KEY_ID = "${AWS_ACCESS_KEY_ID}"
-                        env.AWS_SECRET_ACCESS_KEY = "${AWS_SECRET_ACCESS_KEY}"
-                        echo "AWS_ACCESS_KEY_ID: ${env.AWS_ACCESS_KEY_ID}"
-                        echo "AWS_SECRET_ACCESS_KEY: ${env.AWS_SECRET_ACCESS_KEY}"
-                    }
-                }
-            }
-        }
