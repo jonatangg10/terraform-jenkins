@@ -51,21 +51,25 @@ pipeline {
 
     }
 }
-
 pipeline {
     agent any
     environment {
         AWS_DEFAULT_REGION = 'tu-region-aws'
-        AWS_ACCESS_KEY_ID = credentials('id-de-tus-credenciales').accessKey
-        AWS_SECRET_ACCESS_KEY = credentials('id-de-tus-credenciales').secretKey
+        AWS_ACCESS_KEY_ID = ''
+        AWS_SECRET_ACCESS_KEY = ''
     }
     stages {
         stage('Imprimir credenciales de AWS') {
             steps {
-                echo "AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}"
-                echo "AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}"
+                script {
+                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'id-de-tus-credenciales', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                        // No hace falta asignar las credenciales a las variables de entorno aquí
+                        // Se asignarán automáticamente dentro de este bloque
+                    }
+                    echo "AWS_ACCESS_KEY_ID: ${env.AWS_ACCESS_KEY_ID}"
+                    echo "AWS_SECRET_ACCESS_KEY: ${env.AWS_SECRET_ACCESS_KEY}"
+                }
             }
         }
     }
 }
-
