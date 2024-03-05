@@ -32,3 +32,10 @@ pipeline {
         }
     }
 }
+23:14:20  + cd /var/jenkins_home/workspace/terraform
+23:14:20  [Pipeline] sh
+23:14:21  + pwd
+23:14:21  /var/jenkins_home/workspace/terraform
+23:14:21  [Pipeline] sh
+23:14:21  + terraform init
+23:14:21  /var/jenkins_home/workspace/terraform@tmp/durable-bdf5f4f1/script.sh.copy: 1: terraform: not found
