@@ -51,20 +51,3 @@ pipeline {
 
     }
 }
-pipeline {
-    agent any
-    environment {
-        AWS_DEFAULT_REGION = 'us-east-1'
-    }
-    stages {
-        stage('Imprimir credenciales de AWS') {
-            steps {
-                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credencial', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    sh 'echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"'
-                    sh 'echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"'
-                    sh 'printenv'
-                }
-            }
-        }
-    }
-}
