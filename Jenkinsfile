@@ -22,9 +22,11 @@ pipeline {
         stage('Desplegar infraestructura') {
             steps {
                 script {
-                     sh 'cd ${WORKSPACE}' 
-                     sh 'pwd'
-           
+                    sh 'cd ${WORKSPACE}' 
+                    sh 'pwd'
+                    sh 'terraform init'
+                    sh 'terraform plan'
+                    sh 'terraform apply --auto-approve'
                 }
             }
         }
