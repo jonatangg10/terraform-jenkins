@@ -28,6 +28,7 @@ pipeline {
                 sh 'terraform plan -out tfplan'
                 // -out tfplan: crea un archivo con los cambios que tiene el proceso (cifrado).
                 sh 'terraform show -no-color tfplan > tfplan.txt'
+                // en el archivo tfplan se muestra si hay cambios en la infraestructura.
             }
         }
         stage('Terraform Apply / Destroy') {
