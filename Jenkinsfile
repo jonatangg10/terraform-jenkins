@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     parameters {
-        booleanParam(name: 'autoApprove', defaultValue: false, description: '¿Ejecutar automáticamente omitiendo las validaciones de la solicitud después de generar el plan?')
-        choice(name: 'action', choices: ['apply', 'destroy'], description: 'Seleccione la acción a realizar.')
+        booleanParam(name: 'autoAprobar', defaultValue: false, description: '¿Ejecutar automáticamente omitiendo las validaciones de la solicitud después de generar el plan?')
+        choice(name: 'action', choices: ['Terraform Apply', 'Terraform Destroy'], description: 'Seleccione la acción a realizar.')
     }
 
     environment {
@@ -34,18 +34,18 @@ pipeline {
         stage('Terraform Apply / Destroy') {
             steps {
                 script {
-                    if (params.action == 'apply') {
-                        if (!params.autoApprove) {
+                    if (params.action == 'Terraform Apply') {
+                        if (!params.autoAprobar) {
                             def plan = readFile 'tfplan.txt'
                             input message: "¿Quieres aplicar los cambios?",
                             parameters: [text(name: 'Plan', description: 'Por favor, revise el plan', defaultValue: plan)]
                         }
 
                         sh 'terraform ${action} -input=false tfplan'
-                    } else if (params.action == 'destroy') {
+                    } else if (params.action == 'Terraform Destroy') {
                         sh 'terraform ${action} --auto-approve'
                     } else {
-                        error "Acción no válida. Por favor elija 'apply' o 'destroy'."
+                        error "Acción no válida. Por favor elija 'Terraform Apply' o 'Terraform Destroy'."
                     }
                 }
             }
