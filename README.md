@@ -1,7 +1,7 @@
 <p align="center">¡ BIENVENIDO !</p>
 <p align="center"><b>Ejemplo practico de Terraform, Jenkins y AWS</b></p>
 <hr>
-<p align="center"><i>¡ Sigue los pasos en el archivo <b>"Pasos.pdf"</b> !</i></p>
+<p align="center"><i>¡ Sigue los pasos en el archivo "Pasos.pdf" !</i></p>
 <hr>
 
 1. Credenciales del usuario CLI en Jenkins
