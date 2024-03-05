@@ -4,7 +4,16 @@
 <p align="center"><i>¡ Sigue los pasos !</i></p>
 <hr>
 1. Credenciales del usuario CLI en Jenkins
-    
+    - tener disponibles las credenciales del usuario CLI
+    - administrar Jenkins 
+    - credenciales
+    - deslizamos al final, damos click en global
+    - click en add credencials
+    - kind : secret text
+    - Scope :global (jenkins, nodes, items, all child items, etc)
+    - Secret: 
+    - Id: 
+    - Description:
 1. Verificar si terraform esta instalado en el contenedor de Jenkins
     - docker exec jenkins bash
     - terraform --version
