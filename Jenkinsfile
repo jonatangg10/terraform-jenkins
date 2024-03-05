@@ -51,3 +51,23 @@ pipeline {
         }
     }
 }
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Check Terraform Installation') {
+            steps {
+                script {
+                    def terraformPath = sh(script: 'which terraform', returnStdout: true).trim()
+
+                    if (terraformPath) {
+                        echo "Terraform está instalado en la siguiente ruta: ${terraformPath}"
+                    } else {
+                        error "Terraform no está instalado. Por favor, instálalo antes de continuar."
+                    }
+                }
+            }
+        }
+    }
+}
