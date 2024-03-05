@@ -51,3 +51,5 @@ pipeline {
 
     }
 }
+22:30:01  + terraform init
+22:30:01  /var/jenkins_home/workspace/terraform/terraform@tmp/durable-5c73ff31/script.sh.copy: 1: terraform: not found
