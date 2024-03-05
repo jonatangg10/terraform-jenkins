@@ -1,55 +1,34 @@
 pipeline {
     agent any
-
-    parameters {
-        booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
-        choice(name: 'action', choices: ['apply', 'destroy'], description: 'Select the action to perform')
-    }
-
     environment {
-        AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        AWS_DEFAULT_REGION    = 'ap-south-1'
+        AWS_DEFAULT_REGION = 'us-east-1'
     }
-
+    
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/jonatangg10/terraform-jenkins.git'
             }
         }
-        stage('Terraform init') {
+        stage('Imprimir credenciales de AWS') {
             steps {
-                sh 'terraform init'
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_credencial', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    sh 'echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"'
+                    sh 'echo "AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY"'
+                    sh 'printenv'
+                }
             }
         }
-        stage('Plan') {
-            steps {
-                sh 'terraform plan -out tfplan'
-                sh 'terraform show -no-color tfplan > tfplan.txt'
-            }
-        }
-        stage('Apply / Destroy') {
+        stage('Desplegar infraestructura') {
             steps {
                 script {
-                    if (params.action == 'apply') {
-                        if (!params.autoApprove) {
-                            def plan = readFile 'tfplan.txt'
-                            input message: "Do you want to apply the plan?",
-                            parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
-                        }
-
-                        sh 'terraform ${action} -input=false tfplan'
-                    } else if (params.action == 'destroy') {
-                        sh 'terraform ${action} --auto-approve'
-                    } else {
-                        error "Invalid action selected. Please choose either 'apply' or 'destroy'."
+                    dir('terraform') {
+                        sh 'terraform init'
+                        sh 'terraform plan'
+                        sh 'terraform apply --auto-approve'
                     }
                 }
             }
         }
-
     }
 }
-22:30:01  + terraform init
-22:30:01  /var/jenkins_home/workspace/terraform/terraform@tmp/durable-5c73ff31/script.sh.copy: 1: terraform: not found
