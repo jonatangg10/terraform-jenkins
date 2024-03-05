@@ -37,8 +37,8 @@ pipeline {
                     if (params.action == 'apply') {
                         if (!params.autoApprove) {
                             def plan = readFile 'tfplan.txt'
-                            input message: "Do you want to apply the plan?",
-                            parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
+                            input message: "¿Quieres aplicar los cambios?",
+                            parameters: [text(name: 'Plan', description: 'Por favor, revise el plan', defaultValue: plan)]
                         }
 
                         sh 'terraform ${action} -input=false tfplan'
