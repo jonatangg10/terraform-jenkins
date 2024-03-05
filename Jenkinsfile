@@ -80,3 +80,5 @@ Reading package lists... Done
 E: List directory /var/lib/apt/lists/partial is missing. - Acquire (13: Permission denied)
 
 ls: cannot access '/var/lib/apt/lists/partial': No such file or directory
+
+mkdir: cannot create directory ‘/var/lib/apt/lists/partial’: Permission denied
