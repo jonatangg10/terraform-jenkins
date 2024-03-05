@@ -74,3 +74,4 @@ pipeline {
 
 wget https://releases.hashicorp.com/terraform/X.Y.Z/terraform_X.Y.Z_linux_amd64.zip
 
+bash: wget: command not found
