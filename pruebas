@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    tools {
+        terraform 'terraform_1.7.3'
+    }
+    stages {
+        stage('github') { 
+            steps {
+                git branch: 'main', url: 'https://github.com/jonatangg10/terraform-jenkins.git'
+            }
+        }
+        stage('terraform init') { 
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('terraform apply') { 
+            steps {
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
