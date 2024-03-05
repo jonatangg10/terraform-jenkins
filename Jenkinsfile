@@ -82,3 +82,10 @@ E: List directory /var/lib/apt/lists/partial is missing. - Acquire (13: Permissi
 ls: cannot access '/var/lib/apt/lists/partial': No such file or directory
 
 mkdir: cannot create directory ‘/var/lib/apt/lists/partial’: Permission denied
+
+jenkins@53eb846526ea:/$ wget https://releases.hashicorp.com/terraform/X.Y.Z/terraform_X.Y.Z_linux_amd64.zip
+--2024-03-05 14:47:42--  https://releases.hashicorp.com/terraform/X.Y.Z/terraform_X.Y.Z_linux_amd64.zip
+Resolving releases.hashicorp.com (releases.hashicorp.com)... 18.155.248.45, 18.155.248.90, 18.155.248.20, ...
+Connecting to releases.hashicorp.com (releases.hashicorp.com)|18.155.248.45|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2024-03-05 14:47:42 ERROR 404: Not Found.
