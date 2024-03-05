@@ -26,7 +26,7 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 sh 'terraform plan -out tfplan'
-                // -out tfplan: crea un archivo con los cambios que tiene el proceso (cifrado).
+                // -out tfplan: crea un archivo con los cambios que tiene la infraestructura (cifrado).
                 sh 'terraform show -no-color tfplan > tfplan.txt'
                 // en el archivo tfplan se muestra si hay cambios en la infraestructura.
             }
