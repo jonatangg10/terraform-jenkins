@@ -19,20 +19,20 @@ pipeline {
              //   }
          //   }
        // }
-        stage('Plan') {
+        stage('Destroy') {
             steps {
                 // sh 'pwd; cd ${WORKSPACE}/ ; terraform init'
                 // sh 'pwd; cd ${WORKSPACE}/ ; terraform plan -out tfplan'
                 // sh 'pwd; cd ${WORKSPACE}/ ; terraform show -no-color tfplan > tfplan.txt'
-                sh 'pwd; cd ${WORKSPACE}/ ; terraform destroy'
+                script {
+                    // Agrega un mensaje de confirmación antes de ejecutar terraform destroy
+                    input message: '¿Estás seguro que deseas destruir la infraestructura?',
+                          ok: 'Destruir'
+                }
+                sh 'pwd; cd ${WORKSPACE}/ ; terraform destroy -auto-approve'
             }
         }
        
     }
 }
-script {
-                    // Agrega un mensaje de confirmación antes de ejecutar terraform destroy
-                    input message: '¿Estás seguro que deseas destruir la infraestructura?',
-                          ok: 'Destruir'
-                }
-                sh 'terraform destroy -auto-approve'
+
