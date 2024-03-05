@@ -89,3 +89,6 @@ Resolving releases.hashicorp.com (releases.hashicorp.com)... 18.155.248.45, 18.1
 Connecting to releases.hashicorp.com (releases.hashicorp.com)|18.155.248.45|:443... connected.
 HTTP request sent, awaiting response... 404 Not Found
 2024-03-05 14:47:42 ERROR 404: Not Found.
+
+
+https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
