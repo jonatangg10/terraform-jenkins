@@ -30,3 +30,9 @@ pipeline {
        
     }
 }
+script {
+                    // Agrega un mensaje de confirmación antes de ejecutar terraform destroy
+                    input message: '¿Estás seguro que deseas destruir la infraestructura?',
+                          ok: 'Destruir'
+                }
+                sh 'terraform destroy -auto-approve'
