@@ -3,17 +3,25 @@
 <hr>
 <p align="center"><i>¡ Sigue los pasos !</i></p>
 <hr>
+
 1. Credenciales del usuario CLI en Jenkins
     - tener disponibles las credenciales del usuario CLI
     - administrar Jenkins 
     - credenciales
     - deslizamos al final, damos click en global
     - click en add credencials
-    - kind : secret text
-    - Scope :global (jenkins, nodes, items, all child items, etc)
-    - Secret: 
-    - Id: 
-    - Description:
+    ///////////////////////////////////////
+        - kind : secret text
+        - Scope :global (jenkins, nodes, items, all child items, etc)
+        - Secret: (valor)
+        - Id: AWS_ACCESS_KEY_ID
+        - Description: AWS_ACCESS_KEY_ID
+    //////////////////////////////////////
+        - kind : secret text
+        - Scope :global (jenkins, nodes, items, all child items, etc)
+        - Secret: (valor)
+        - Id: AWS_SECRET_ACCESS_KEY
+        - Description: AWS_SECRET_ACCESS_KEY
 1. Verificar si terraform esta instalado en el contenedor de Jenkins
     - docker exec jenkins bash
     - terraform --version
@@ -38,6 +46,6 @@
     - terraform --version
     - exit
 2. Entramos con nuestro usuario al contenedor
-    - docker exec -it 53eb846526ea bash
+    - docker exec -it jenkins bash
     - terraform --version
     
