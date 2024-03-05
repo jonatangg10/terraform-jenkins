@@ -3,3 +3,7 @@
 <hr>
 <p align="center"><i>¡ Sigue los pasos !</i></p>
 <hr>
+1. Verificar si terraform esta instalado en el contenedor de Jenkins
+    - docker exec jenkins bash
+    - terraform --version
+    - Si el comando anterior genera error, entramos con el usuario root en el contenedor
