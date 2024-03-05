@@ -42,7 +42,7 @@ pipeline {
                     } else if (params.action == 'destroy') {
                         sh 'terraform ${action} --auto-approve'
                     } else {
-                        error "Invalid action selected. Please choose either 'apply' or 'destroy'."
+                        error "Acción no válida. Por favor elija 'apply' o 'destroy'."
                     }
                 }
             }
