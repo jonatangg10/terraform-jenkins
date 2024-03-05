@@ -92,3 +92,14 @@ HTTP request sent, awaiting response... 404 Not Found
 
 
 https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
+
+
+jenkins@53eb846526ea:/$ wget https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
+--2024-03-05 14:51:03--  https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
+Resolving releases.hashicorp.com (releases.hashicorp.com)... 18.155.248.90, 18.155.248.119, 18.155.248.45, ...
+Connecting to releases.hashicorp.com (releases.hashicorp.com)|18.155.248.90|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 25940915 (25M) [application/zip]
+terraform_1.7.4_linux_amd64.zip: Permission denied
+
+Cannot write to ‘terraform_1.7.4_linux_amd64.zip’ (Permission denied).
