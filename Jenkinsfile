@@ -28,7 +28,7 @@ pipeline {
                 sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
             }
         }
-        stage('Approval') {
+        stage('Aprovar') {
            when {
                not {
                    equals expected: true, actual: params.autoApprove
