@@ -7,6 +7,7 @@
     - docker exec jenkins bash
     - terraform --version
     - Si el comando anterior genera error, entramos con el usuario root en el contenedor
+    - exit
     - docker exec -u 0 -it jenkins /bin/bash
     - comprobamos si esta creado lo siguiente: cd /var/lib/apt/lists/partial
     - si no existe la creamos.
@@ -25,6 +26,7 @@
     - mv terraform /usr/local/bin/
     - terraform --version
     - exit
-
-
+2. Entramos con nuestro usuario al contenedor
+    - docker exec -it 53eb846526ea bash
+    - terraform --version
     
