@@ -22,15 +22,11 @@ pipeline {
         stage('Desplegar infraestructura') {
             steps {
                 script {
-                    dir('terraform') {
-                        sh 'terraform init'
-                        sh 'terraform plan'
-                        sh 'terraform apply --auto-approve'
-                    }
+                     sh 'cd ${WORKSPACE}' 
+                     sh 'pwd'
+           
                 }
             }
         }
     }
 }
-22:47:34  + terraform init
-22:47:34  /var/jenkins_home/workspace/terraform/terraform@tmp/durable-cc46d8c4/script.sh.copy: 1: terraform: not found
