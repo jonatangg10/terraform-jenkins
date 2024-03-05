@@ -21,7 +21,10 @@
     - chmod 777 /tmp
     - cd /tmp
     - wget https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
-    - 
+    - unzip terraform_1.7.4_linux_amd64.zip
+    - mv terraform /usr/local/bin/
+    - terraform --version
+    - exit
 
 
     
