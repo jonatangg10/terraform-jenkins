@@ -52,14 +52,8 @@ pipeline {
     }
 }
 
-stage('Desplegar infraestructura') {
+stage('Checkout') {
             steps {
-                script {
-                    dir('terraform') {
-                        sh 'terraform init'
-                        sh 'terraform plan'
-                        sh 'terraform apply --auto-approve'
-                    }
-                }
+                git branch: 'nombre_de_tu_rama', url: 'https://github.com/tu_usuario/tu_repositorio.git'
             }
         }
