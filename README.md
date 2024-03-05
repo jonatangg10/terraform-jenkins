@@ -3,6 +3,8 @@
 <hr>
 <p align="center"><i>¡ Sigue los pasos !</i></p>
 <hr>
+1. Credenciales del usuario CLI en Jenkins
+    
 1. Verificar si terraform esta instalado en el contenedor de Jenkins
     - docker exec jenkins bash
     - terraform --version
