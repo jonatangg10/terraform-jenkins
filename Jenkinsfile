@@ -51,9 +51,3 @@ pipeline {
 
     }
 }
-
-stage('Checkout') {
-            steps {
-                git branch: 'nombre_de_tu_rama', url: 'https://github.com/tu_usuario/tu_repositorio.git'
-            }
-        }
