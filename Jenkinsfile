@@ -19,17 +19,31 @@ pipeline {
              //   }
          //   }
        // }
-        stage('Destroy') {
+        stage('terraform') {
             steps {
-                // sh 'pwd; cd ${WORKSPACE}/ ; terraform init'
-                // sh 'pwd; cd ${WORKSPACE}/ ; terraform plan -out tfplan'
-                // sh 'pwd; cd ${WORKSPACE}/ ; terraform show -no-color tfplan > tfplan.txt'
-                script {
-                    // Agrega un mensaje de confirmación antes de ejecutar terraform destroy
-                    input message: '¿Estás seguro que deseas destruir la infraestructura?',
-                          ok: 'Destruir'
-                }
-                sh 'pwd; cd ${WORKSPACE}/ ; terraform destroy -auto-approve'
+                sh 'pwd; cd ${WORKSPACE}/ ; terraform init'
+                sh 'pwd; cd ${WORKSPACE}/ ; terraform plan -out tfplan'
+                sh 'pwd; cd ${WORKSPACE}/ ; terraform show -no-color tfplan > tfplan.txt'
+            }
+        }
+         stage('Aprovar') {
+           when {
+               not {
+                   equals expected: true, actual: params.autoApprove
+               }
+           }
+
+           steps {
+               script {
+                    def plan = readFile '${WORKSPACE}/tfplan.txt'
+                    input message: "Do you want to apply the plan?",
+                    parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
+               }
+           }
+       }
+        stage('Apply') {
+            steps {
+                sh "pwd;cd ${WORKSPACE}/ ; terraform apply -input=false tfplan"
             }
         }
        
