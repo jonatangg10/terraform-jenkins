@@ -17,18 +17,18 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/jonatangg10/terraform-jenkins.git'
             }
         }
-        stage('Terraform init') {
+        stage('Terraform Init') {
             steps {
                 sh 'terraform init'
             }
         }
-        stage('Plan') {
+        stage('Terraform Plan') {
             steps {
                 sh 'terraform plan -out tfplan'
                 sh 'terraform show -no-color tfplan > tfplan.txt'
             }
         }
-        stage('Apply / Destroy') {
+        stage('Terraform Apply / Destroy') {
             steps {
                 script {
                     if (params.action == 'apply') {
