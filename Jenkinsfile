@@ -85,7 +85,7 @@ pipeline {
                                                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
                                             }
                                             .header {
-                                                background-color: #517f83;
+                                                background-color: #68829E;
                                                 padding: 20px;
                                                 color: #ffffff;
                                                 text-align: center;
@@ -108,6 +108,7 @@ pipeline {
                                             p {
                                                 font-size: 16px;
                                                 line-height: 1.6;
+                                                color: #000000;
                                             }
                                             a {
                                                 color: #007bff;
@@ -116,7 +117,7 @@ pipeline {
                                             }
                                             .button {
                                                 display: inline-block;
-                                                background-color: #007bff;
+                                                background-color: #AEBD38;
                                                 color: white;
                                                 padding: 10px 20px;
                                                 text-decoration: none;
@@ -152,8 +153,8 @@ pipeline {
                                                     <div class="content">
                                                         <p>Estimado usuario.</p>
                                                         <p>Este es un correo electrónico de notificación generado por Jenkins.</p>
-                                                        <p>Build: <b>${currentBuild.getFullDisplayName()}</b></p>
-                                                        <p>El proceso a realizado fue: <b>${mensaje}</b></p>
+                                                        <p>Build: ${currentBuild.getFullDisplayName()}</p>
+                                                        <p>El proceso a realizado fue: ${mensaje}</p>
                                                         <div style="text-align: center;">
                                                             <h2>Detalles del Build:</h2>
                                                             <p>Número del Build: <strong>${currentBuild.number}</strong></p>
