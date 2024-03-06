@@ -85,7 +85,7 @@ pipeline {
                                                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
                                             }
                                             .header {
-                                                background-color: #OE2C4O;
+                                                background-color: #8C8C88;
                                                 padding: 20px;
                                                 color: #ffffff;
                                                 text-align: center;
@@ -111,7 +111,7 @@ pipeline {
                                                 color: #000000;
                                             }
                                             a {
-                                                color: #OE2C4O;
+                                                color: #8C8C88;
                                                 text-decoration: none;
                                                 font-weight: bold;
                                             }
