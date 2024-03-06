@@ -4,7 +4,7 @@ pipeline {
     parameters {
         booleanParam(name: 'autoAprobar', defaultValue: false, description: '¿Ejecutar automáticamente omitiendo las validaciones de la solicitud después de generar el plan?')
         choice(name: 'action', choices: ['Terraform Apply', 'Terraform Destroy'], description: 'Seleccione la acción a realizar.')
-        choice(name: 'email', choices: ['Equipo 1', 'Equipo 2'], description: 'Seleccione al equipo que desea notificar.')
+        choice(name: 'Notificar', choices: ['Equipo 1', 'Equipo 2'], description: 'Seleccione al equipo que desea notificar.')
     }
 
     environment {
