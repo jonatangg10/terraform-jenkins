@@ -85,7 +85,7 @@ pipeline {
                                                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
                                             }
                                             .header {
-                                                background-color: #68829E;
+                                                background-color: #OE2C4O;
                                                 padding: 20px;
                                                 color: #ffffff;
                                                 text-align: center;
@@ -111,13 +111,13 @@ pipeline {
                                                 color: #000000;
                                             }
                                             a {
-                                                color: #007bff;
+                                                color: #OE2C4O;
                                                 text-decoration: none;
                                                 font-weight: bold;
                                             }
                                             .button {
                                                 display: inline-block;
-                                                background-color: #AEBD38;
+                                                background-color: #OE2C4O;
                                                 color: white;
                                                 padding: 10px 20px;
                                                 text-decoration: none;
@@ -126,7 +126,8 @@ pipeline {
                                                 transition: background-color 0.3s ease;
                                             }
                                             .button:hover {
-                                                background-color: #0056b3;
+                                                cursor: pointer;
+                                                background-color: #1A4A5A;
                                             }
                                             .footer {
                                                 background-color: #fafbfd;
@@ -136,6 +137,10 @@ pipeline {
                                                 border-radius: 0 0 8px 8px;
                                                 border-top: 1px solid #dddddd;
                                                 margin-top: 10px;
+                                            }
+                                            #linea{
+                                                margin-top: 5px;
+                                                border-top: 1px solid #dddddd;
                                             }
                                             @media screen and (max-width: 600px) {
                                                 .container {
@@ -155,7 +160,7 @@ pipeline {
                                                         <p>Este es un correo electrónico de notificación generado por Jenkins.</p>
                                                         <p>Build: ${currentBuild.getFullDisplayName()}</p>
                                                         <p>El proceso a realizado fue: ${mensaje}</p>
-                                                        <div style="text-align: center;">
+                                                        <div style="text-align: center;" id="linea">
                                                             <h2>Detalles del Build:</h2>
                                                             <p>Número del Build: <strong>${currentBuild.number}</strong></p>
                                                             <p>Estado del Build: <strong>${currentBuild.result}</strong></p>
