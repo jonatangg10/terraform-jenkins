@@ -158,8 +158,8 @@ pipeline {
                                                     <div class="content">
                                                         <p>Estimado usuario.</p>
                                                         <p>Este es un correo electrónico de notificación generado por Jenkins.</p>
-                                                        <p>Build: ${currentBuild.getFullDisplayName()}</p>
-                                                        <p>El proceso a realizado fue: ${mensaje}</p>
+                                                        <p>Build: <b>${currentBuild.getFullDisplayName()}</b></p>
+                                                        <p>El proceso a realizado fue: <b>${mensaje}</b></p>
                                                         <div style="text-align: center;" id="linea">
                                                             <h2>Detalles del Build:</h2>
                                                             <p>Número del Build: <strong>${currentBuild.number}</strong></p>
