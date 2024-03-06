@@ -50,14 +50,16 @@ pipeline {
                 }
             }
         }
-
     }
-}
- post {
+
+     post {
         always {
             // Enviar correo electrónico de notificación después de completar la ejecución del pipeline
             emailext subject: "${currentBuild.result}: Terraform Pipeline ${params.action}",
                       body: "El pipeline de Terraform se completó para la acción '${params.action}'.",
-                      to: 'tu_correo_electronico@ejemplo.com'
+                      to: 'jonatangutierrez@seti.com.co'
         }
     }
+    
+}
+
