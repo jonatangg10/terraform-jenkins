@@ -57,8 +57,9 @@ pipeline {
 
      post {
         always {
-            // Enviar correo electrónico de notificación después de completar la ejecución del pipeline
-            emailext subject: "Jenkins: ${currentBuild.getFullDisplayName()}",
+            script {
+                def destinatario = params.Notificar == 'Equipo 1' ? 'mariaeugenianieto345@gmail.com, jonatangutierrez@seti.com.co' : 'jonatangutierrez@seti.com.co'
+                emailext subject: "Jenkins: ${currentBuild.getFullDisplayName()}",
                         body : """
                                 <!DOCTYPE html>
                                     <html lang="en">
@@ -177,12 +178,11 @@ pipeline {
                                         </body>
                                 </html>
                             """,
-                        to: 'jonatangutierrez@seti.com.co',
+                        to: destinatario,
                         from: "mariaeugenianieto345@gmail.com",
                         replyTo: "jonatangutierrez@seti.com.co",
                         mimeType: 'text/html'
+            }                 
         }
-    }
-    
+    }    
 }
-
