@@ -56,8 +56,9 @@ pipeline {
         always {
             // Enviar correo electrónico de notificación después de completar la ejecución del pipeline
             emailext subject: "Jenkins: ${currentBuild.getFullDisplayName()}",
-                      body: "El pipeline de Terraform se completó ${currentBuild.result}",
-                      to: 'jonatangutierrez@seti.com.co'
+                        body: "El pipeline de Terraform se completó ${currentBuild.getFullDisplayName()} ${currentBuild.result} ",
+                        to: 'jonatangutierrez@seti.com.co',
+                        from: "mariaeugenianieto345@gmail.com"
         }
     }
     
