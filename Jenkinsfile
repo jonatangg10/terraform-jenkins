@@ -117,7 +117,7 @@ pipeline {
                                             }
                                             .button {
                                                 display: inline-block;
-                                                background-color: #OE2C4O;
+                                                background-color: #9DA65D;
                                                 color: white;
                                                 padding: 10px 20px;
                                                 text-decoration: none;
