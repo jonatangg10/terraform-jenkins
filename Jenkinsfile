@@ -58,7 +58,9 @@ pipeline {
             emailext subject: "Jenkins: ${currentBuild.getFullDisplayName()}",
                         body: "El pipeline de Terraform se completó ${currentBuild.getFullDisplayName()} ${currentBuild.result} ",
                         to: 'jonatangutierrez@seti.com.co',
-                        from: "mariaeugenianieto345@gmail.com"
+                        from: "mariaeugenianieto345@gmail.com",
+                        replyTo: "jonatangutierrez@seti.com.co",
+                        mimeType: 'text/html'
         }
     }
     
