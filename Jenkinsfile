@@ -57,6 +57,7 @@ pipeline {
         always {
             script {
                 def destinatario = params.Notificar == 'Equipo 1' ? 'mariaeugenianieto345@gmail.com, jonatangutierrez@seti.com.co' : 'jonatangutierrez@seti.com.co'
+                def mensaje = params.action == 'Terraform Apply' ? 'Terraform Apply' : 'Terraform Destroy'
                 emailext subject: "Jenkins: ${currentBuild.getFullDisplayName()}",
                         body : """
                                 <!DOCTYPE html>
@@ -149,10 +150,11 @@ pipeline {
                                                     <div class="content">
                                                         <p>Estimado usuario.</p>
                                                         <p>Este es un correo electrónico de notificación generado por Jenkins.</p>
-
+                                                        <p>Build: ${currentBuild.getFullDisplayName()}</p>
+                                                        <p>El proceso a realizado fue: ${mensaje}</p>
                                                         <div style="text-align: center;">
                                                             <h2>Detalles del Build:</h2>
-                                                            <p>Número del Build: <strong>${currentBuild.getFullDisplayName()}</strong></p>
+                                                            <p>Número del Build: <strong>${currentBuild.number}</strong></p>
                                                             <p>Estado del Build: <strong>${currentBuild.result}</strong></p>
                                                         </div>
                                                         <div style="text-align: center;">
