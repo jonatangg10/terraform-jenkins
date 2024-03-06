@@ -111,7 +111,7 @@ pipeline {
                                                 color: #000000;
                                             }
                                             a {
-                                                color: #8C8C88;
+                                                color: #9DA65D;
                                                 text-decoration: none;
                                                 font-weight: bold;
                                             }
