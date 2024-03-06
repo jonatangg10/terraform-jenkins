@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        repoLink = 'https://github.com/jonatangg10/terraform-jenkins.git'
-    }
     parameters {
         booleanParam(name: 'autoAprobar', defaultValue: false, description: '¿Ejecutar automáticamente omitiendo las validaciones de la solicitud después de generar el plan?')
         choice(name: 'action', choices: ['Terraform Apply', 'Terraform Destroy'], description: 'Seleccione la acción a realizar.')
@@ -12,6 +9,7 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        repoLink = 'https://github.com/jonatangg10/terraform-jenkins.git'
     }
 
     stages {
