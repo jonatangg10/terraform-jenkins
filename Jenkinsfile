@@ -85,7 +85,7 @@ pipeline {
                                                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
                                             }
                                             .header {
-                                                background-color: #007bff;
+                                                background-color: #517f83;
                                                 padding: 20px;
                                                 color: #ffffff;
                                                 text-align: center;
@@ -102,7 +102,7 @@ pipeline {
                                             }
                                             h2 {
                                                 font-family: 'Montserrat', sans-serif;
-                                                color: #007bff;
+                                                color: #517f83;
                                                 font-size: 24px;
                                             }
                                             p {
