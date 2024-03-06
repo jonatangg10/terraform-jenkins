@@ -102,7 +102,7 @@ pipeline {
                                             }
                                             h2 {
                                                 font-family: 'Montserrat', sans-serif;
-                                                color: #517f83;
+                                                color: #9DA65D;
                                                 font-size: 24px;
                                             }
                                             p {
@@ -127,7 +127,7 @@ pipeline {
                                             }
                                             .button:hover {
                                                 cursor: pointer;
-                                                background-color: #1A4A5A;
+                                                background-color: #6C733D;
                                             }
                                             .footer {
                                                 background-color: #fafbfd;
