@@ -56,8 +56,10 @@ pipeline {
      post {
         always {
             script {
+                
                 def destinatario = params.Notificar == 'Equipo 1' ? 'mariaeugenianieto345@gmail.com, jonatangutierrez@seti.com.co' : 'jonatangutierrez@seti.com.co'
                 def mensaje = params.action == 'Terraform Apply' ? 'Terraform Apply' : 'Terraform Destroy'
+              
                 emailext subject: "Jenkins: ${currentBuild.getFullDisplayName()}",
                         body : """
                                 <!DOCTYPE html>
